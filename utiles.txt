@@ -1,0 +1,12 @@
+include 'connexion.php';
+
+$stmt = $dbh->prepare("INSERT INTO REGISTRY (name, value) VALUES (?,?)");
+$stmt->bindParam(1, $name);
+$stmt->bindParam(2, $value);
+
+$res = $pdo->query("SELECT nom FROM professeur");
+$res->setFetchMode(PDO::FETCH_OBJ);
+foreach ($res as $result) {
+echo $result->nom;
+}
+?>
